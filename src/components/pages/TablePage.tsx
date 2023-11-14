@@ -56,7 +56,7 @@ const TablePage = ({ type }: TablePageInterface) => {
         case "starships":
           setPageName("Starships");
           displayResults(
-            "http://swapi.dev/api/starships?page=" + dataPageValue
+            "https://swapi.dev/api/starships?page=" + dataPageValue
           );
           break;
         default:
