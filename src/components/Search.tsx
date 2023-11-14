@@ -1,14 +1,19 @@
 // Search used alongside the tables
-import { useState } from "react";
 import { Button, TextField } from "@mui/material";
 
 interface SearchInterface {
-  loadData: (queryString: string) => void;
+  searchText: string;
+  setSearchText: (value: string) => void;
+  loadData: (event: string) => void;
   dataLoaded: boolean;
 }
 
-const Search = ({ loadData, dataLoaded }: SearchInterface) => {
-  const [searchText, setSearchText] = useState<string>("");
+const Search = ({
+  searchText,
+  setSearchText,
+  loadData,
+  dataLoaded,
+}: SearchInterface) => {
   const updateSearchText = (value: string) => {
     setSearchText(value);
   };
@@ -19,6 +24,7 @@ const Search = ({ loadData, dataLoaded }: SearchInterface) => {
   return (
     <div>
       <TextField
+        value={searchText}
         label="Search"
         size="small"
         onChange={(e) => {

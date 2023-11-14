@@ -22,6 +22,7 @@ interface TablePageInterface {
 
 const TablePage = ({ type }: TablePageInterface) => {
   const [pageName, setPageName] = useState<string>("");
+  const [searchText, setSearchText] = useState<string>("");
   const [starWarsData, setStarWarsData] = useState<[]>([]);
   const [starWarsDataCount, setStarWarsDataCount] = useState<number>(0);
   const [dataPageValue, setDataPageValue] = useState(1);
@@ -65,6 +66,7 @@ const TablePage = ({ type }: TablePageInterface) => {
     [dataPageValue, type]
   );
   useEffect(() => {
+    setSearchText("");
     loadData("");
   }, [loadData]);
 
@@ -75,7 +77,12 @@ const TablePage = ({ type }: TablePageInterface) => {
       <Typography variant="h5" sx={{ marginBottom: "10px" }}>
         {pageName}
       </Typography>
-      <Search loadData={loadData} dataLoaded={dataLoaded} />
+      <Search
+        searchText={searchText}
+        setSearchText={setSearchText}
+        loadData={loadData}
+        dataLoaded={dataLoaded}
+      />
       {!dataLoaded && (
         <div>
           <br />

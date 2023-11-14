@@ -1,5 +1,5 @@
 // Primary app navigation
-import { useContext } from "react";
+import { useContext, CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { Box } from "@mui/material";
 
@@ -13,6 +13,19 @@ interface HeaderInterface {
 const Header = ({ type, dataLoaded }: HeaderInterface) => {
   const { userName } = useContext(UserNameContext);
 
+  const peopleHighlightStyle = {
+    fontWeight: type === "people" ? "bold" : "normal",
+    pointerEvents: (type !== "people" && dataLoaded
+      ? "auto"
+      : "none") as CSSProperties["pointerEvents"],
+  };
+  const starshipsHighlightStyle = {
+    fontWeight: type === "starships" ? "bold" : "normal",
+    pointerEvents: (type !== "starships" && dataLoaded
+      ? "auto"
+      : "none") as CSSProperties["pointerEvents"],
+  };
+
   return (
     <Box
       sx={{
@@ -23,30 +36,17 @@ const Header = ({ type, dataLoaded }: HeaderInterface) => {
       }}
       style={{ textAlign: "center" }}
     >
-      {dataLoaded && (
-        <>
-          <Link
-            to="/candidate-react-web-ui/people"
-            style={
-              type === "people"
-                ? { fontWeight: "bold" }
-                : { fontWeight: "normal" }
-            }
-          >
-            People
-          </Link>
-          <Link
-            to="/candidate-react-web-ui/starships"
-            style={
-              type === "starships"
-                ? { fontWeight: "bold" }
-                : { fontWeight: "normal" }
-            }
-          >
-            Starships
-          </Link>
-        </>
-      )}
+      <>
+        <Link to="/candidate-react-web-ui/people" style={peopleHighlightStyle}>
+          People
+        </Link>
+        <Link
+          to="/candidate-react-web-ui/starships"
+          style={starshipsHighlightStyle}
+        >
+          Starships
+        </Link>
+      </>
       <span>
         <em>{userName}</em>
       </span>
