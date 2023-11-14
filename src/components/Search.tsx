@@ -4,6 +4,7 @@ import { Button, TextField } from "@mui/material";
 interface SearchInterface {
   searchText: string;
   setSearchText: (value: string) => void;
+  setDataPageValue: (value: number) => void;
   loadData: (event: string) => void;
   dataLoaded: boolean;
 }
@@ -11,6 +12,7 @@ interface SearchInterface {
 const Search = ({
   searchText,
   setSearchText,
+  setDataPageValue,
   loadData,
   dataLoaded,
 }: SearchInterface) => {
@@ -18,7 +20,8 @@ const Search = ({
     setSearchText(value);
   };
   const handleSearchButton = () => {
-    loadData("&search=" + searchText);
+    setDataPageValue(1);
+    loadData("?page=1" + "&search=" + searchText);
   };
 
   return (

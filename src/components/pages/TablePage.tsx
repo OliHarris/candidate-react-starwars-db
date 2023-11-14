@@ -52,18 +52,16 @@ const TablePage = ({ type }: TablePageInterface) => {
       switch (type) {
         case "people":
           setPageName("People");
-          displayResults("https://swapi.dev/api/people?page=" + dataPageValue);
+          displayResults("https://swapi.dev/api/people");
           break;
         case "starships":
           setPageName("Starships");
-          displayResults(
-            "https://swapi.dev/api/starships?page=" + dataPageValue
-          );
+          displayResults("https://swapi.dev/api/starships");
           break;
         default:
       }
     },
-    [dataPageValue, type]
+    [type]
   );
   useEffect(() => {
     setSearchText("");
@@ -80,6 +78,7 @@ const TablePage = ({ type }: TablePageInterface) => {
       <Search
         searchText={searchText}
         setSearchText={setSearchText}
+        setDataPageValue={setDataPageValue}
         loadData={loadData}
         dataLoaded={dataLoaded}
       />
@@ -179,8 +178,12 @@ const TablePage = ({ type }: TablePageInterface) => {
         </TableContainer>
       )}
       <Pagination
+        page={dataPageValue}
         count={Math.ceil(starWarsDataCount / 10)}
-        onChange={(_e, value) => setDataPageValue(value)}
+        onChange={(_e, value) => {
+          setDataPageValue(value);
+          loadData("?page=" + value + "&search=" + searchText);
+        }}
         disabled={!dataLoaded || !starWarsData.length}
       />
     </div>
