@@ -1,4 +1,4 @@
-# Todo Project
+# Web UI
 
 This was originally a test set for Hitatchi, which I have since dropped into a fresh instance of Vite to continue building out.
 
