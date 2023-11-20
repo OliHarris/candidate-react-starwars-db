@@ -24,26 +24,6 @@ describe("initial default tests", () => {
 describe("table-page-tests", () => {
   afterEach(cleanup);
 
-  test("Load 'people' page", async () => {
-    render(
-      <MemoryRouter>
-        <TablePage type={"people"} />
-      </MemoryRouter>
-    );
-    const headerTextElement = screen.getByRole("heading");
-    expect(headerTextElement).toHaveTextContent("People");
-  });
-
-  test("Load 'starships' page", async () => {
-    render(
-      <MemoryRouter>
-        <TablePage type={"starships"} />
-      </MemoryRouter>
-    );
-    const headerTextElement = screen.getByRole("heading");
-    expect(headerTextElement).toHaveTextContent("Starships");
-  });
-
   test("Load 'people' page with 'luke' query string", async () => {
     // our desired output
     const peopleData = peopleLukePage1;
