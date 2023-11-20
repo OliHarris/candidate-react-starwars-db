@@ -1,6 +1,5 @@
-// Table of people data
+// Table of data
 import { useState, useEffect, useCallback } from "react";
-import axios from "axios";
 import {
   Paper,
   Typography,
@@ -15,6 +14,7 @@ import {
 
 import Header from "../Header";
 import Search from "../Search";
+import getStarWarsData from "../../api/getStarWarsData";
 
 interface TablePageInterface {
   type: string;
@@ -33,20 +33,10 @@ const TablePage = ({ type }: TablePageInterface) => {
       const displayResults = (dataUrl: string) => {
         setStarWarsData([]);
         setDataLoaded(false);
-        axios
-          .get(queryString ? dataUrl + queryString : dataUrl)
-          .then((response) => {
-            console.log(response);
-            const data = response.data;
-            setStarWarsData(data.results);
-            setStarWarsDataCount(data.count);
-          })
-          .catch((error) => {
-            console.log(error);
-          })
-          .then(() => {
-            setDataLoaded(true);
-          });
+        getStarWarsData(queryString, dataUrl, setDataLoaded).then((data) => {
+          setStarWarsData(data.results);
+          setStarWarsDataCount(data.count);
+        });
       };
 
       switch (type) {

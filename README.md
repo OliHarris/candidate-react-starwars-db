@@ -72,7 +72,17 @@ Will perform a usual installation of any dependencies.
 
 Will perform a usual launch of the dev environment.
 
-## NOTE:
+### `npm run test`
+
+Will perform a launch of the test suite; generating a fully 100% covered report.
+
+## NOTE1:
+
+As this is a Vite app, I installed Jest unit-tests using:
+
+https://dev.to/hannahadora/jest-testing-with-vite-and-react-typescript-4bap
+
+## NOTE2:
 
 As this is a Vite app, I hosted it on GitHub pages using this guide:
 

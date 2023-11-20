@@ -23,8 +23,8 @@ const Login = () => {
     <div style={{ height: "100vh", display: "flex", alignItems: "center" }}>
       <Grid container>
         <Grid item xs />
-        <Grid item xs={6}>
-          <div style={{ textAlign: "center" }}>
+        <Grid item xs={6} style={{ textAlign: "center" }}>
+          <div>
             <TextField
               label="Username"
               variant="standard"
@@ -33,7 +33,7 @@ const Login = () => {
               }}
             />
           </div>
-          <div style={{ textAlign: "center" }}>
+          <div>
             <TextField
               label="Password"
               variant="standard"
@@ -42,7 +42,7 @@ const Login = () => {
               }}
             />
           </div>
-          <div style={{ textAlign: "center" }}>
+          <div>
             {(!validUsername || !validPassword) && (
               <Button type="submit" disabled>
                 Enter Site
