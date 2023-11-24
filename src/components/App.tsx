@@ -11,13 +11,13 @@ const App = () => {
         <UserNameProvider>
           <Routes>
             <Route path="/" element={<Login />} />
-            <Route path="/candidate-react-web-ui" element={<Login />} />
+            <Route path="/candidate-react-starwars-db" element={<Login />} />
             <Route
-              path="/candidate-react-web-ui/people"
+              path="/candidate-react-starwars-db/people"
               element={<TablePage type="people" />}
             />
             <Route
-              path="/candidate-react-web-ui/starships"
+              path="/candidate-react-starwars-db/starships"
               element={<TablePage type="starships" />}
             />
           </Routes>

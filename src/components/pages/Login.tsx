@@ -49,7 +49,7 @@ const Login = () => {
               </Button>
             )}
             {validUsername && validPassword && (
-              <Link to="/candidate-react-web-ui/people">
+              <Link to="/candidate-react-starwars-db/people">
                 <Button type="submit">Enter Site</Button>
               </Link>
             )}

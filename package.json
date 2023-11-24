@@ -1,9 +1,9 @@
 {
-  "name": "candidate-react-web-ui",
+  "name": "candidate-react-starwars-db",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://oliharris.github.io/candidate-react-web-ui",
+  "homepage": "https://oliharris.github.io/candidate-react-starwars-db",
   "scripts": {
     "dev": "vite",
     "test": "jest --watchAll --coverage",

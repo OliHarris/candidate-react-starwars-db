@@ -37,11 +37,11 @@ const Header = ({ type, dataLoaded }: HeaderInterface) => {
       style={{ textAlign: "center" }}
     >
       <>
-        <Link to="/candidate-react-web-ui/people" style={peopleHighlightStyle}>
+        <Link to="/candidate-react-starwars-db/people" style={peopleHighlightStyle}>
           People
         </Link>
         <Link
-          to="/candidate-react-web-ui/starships"
+          to="/candidate-react-starwars-db/starships"
           style={starshipsHighlightStyle}
         >
           Starships
