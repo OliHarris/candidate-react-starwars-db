@@ -55,6 +55,7 @@ const TablePage = ({ type }: TablePageInterface) => {
   );
   useEffect(() => {
     setSearchText("");
+    setDataPageValue(1);
     loadData("");
   }, [loadData]);
 
