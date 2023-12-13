@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 import UserNameProvider from "./context/UserNameProvider";
 import Login from "./pages/Login";
@@ -7,7 +7,7 @@ import TablePage from "./pages/TablePage";
 const App = () => {
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <UserNameProvider>
           <Routes>
             <Route path="/" element={<Login />} />
@@ -22,7 +22,7 @@ const App = () => {
             />
           </Routes>
         </UserNameProvider>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 };
